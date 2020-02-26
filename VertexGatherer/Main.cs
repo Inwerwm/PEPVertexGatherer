@@ -16,7 +16,7 @@ namespace VertexGatherer
         {
             get
             {
-                return "プラグイン名";
+                return "頂点集結";
             }
         }
 
@@ -24,7 +24,7 @@ namespace VertexGatherer
         {
             get
             {
-                return "0.0";
+                return "1.0";
             }
         }
 
@@ -32,7 +32,7 @@ namespace VertexGatherer
         {
             get
             {
-                return "プラグイン説明";
+                return "頂点を集結させるプラグイン";
             }
         }
 
@@ -41,7 +41,7 @@ namespace VertexGatherer
             get
             {
                 // boot時実行, プラグインメニューへの登録, メニュー登録名
-                return new PEPluginOption(false, true, "プラグイン名");
+                return new PEPluginOption(false, true, "頂点集結");
             }
         }
 
