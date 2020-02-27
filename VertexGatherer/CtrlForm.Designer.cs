@@ -171,7 +171,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(53, 20);
             this.labelVersion.TabIndex = 3;
-            this.labelVersion.Text = "Ver 1.0";
+            this.labelVersion.Text = "Ver 1.1";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // CtrlForm
