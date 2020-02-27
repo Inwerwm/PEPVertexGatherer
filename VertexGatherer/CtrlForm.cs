@@ -109,8 +109,8 @@ namespace VertexGatherer
             }
 
             //正規化
-            var max = weight.Select(w => w.weight).Max();
-            weight = weight.Select(w => (w.bone, w.weight / max)).ToList();
+            var sum = weight.Select(w => w.weight).Sum();
+            weight = weight.Select(w => (w.bone, w.weight / sum)).ToList();
 
             //頂点に入力
             vertex.Bone1 = weight[0].bone;
