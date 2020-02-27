@@ -101,35 +101,29 @@ namespace VertexGatherer
             weights.Sort((v, w) => w.weight.CompareTo(v.weight));
 
             //大きい方から4つまでを残す
-            var weight = new List<(IPXBone bone, float weight)>();
-            for (int i = 0; i < weights.Count; i++)
-            {
-                weight.Add(weights[i]);
-                if (i >= 3)
-                    break;
-            }
+            weights.Take(4);
 
             //正規化
-            var sum = weight.Select(w => w.weight).Sum();
-            weight = weight.Select(w => (w.bone, w.weight / sum)).ToList();
+            var sum = weights.Select(w => w.weight).Sum();
+            weights = weights.Select(w => (w.bone, w.weight / sum)).ToList();
 
             //頂点に入力
-            vertex.Bone1 = weight[0].bone;
-            vertex.Weight1 = weight[0].weight;
-            if (weight.Count > 1)
+            vertex.Bone1 = weights[0].bone;
+            vertex.Weight1 = weights[0].weight;
+            if (weights.Count > 1)
             {
-                vertex.Bone2 = weight[1].bone;
-                vertex.Weight2 = weight[1].weight;
+                vertex.Bone2 = weights[1].bone;
+                vertex.Weight2 = weights[1].weight;
             }
-            if (weight.Count > 2)
+            if (weights.Count > 2)
             {
-                vertex.Bone3 = weight[2].bone;
-                vertex.Weight3 = weight[2].weight;
+                vertex.Bone3 = weights[2].bone;
+                vertex.Weight3 = weights[2].weight;
             }
-            if (weight.Count > 3)
+            if (weights.Count > 3)
             {
-                vertex.Bone4 = weight[3].bone;
-                vertex.Weight4 = weight[3].weight;
+                vertex.Bone4 = weights[3].bone;
+                vertex.Weight4 = weights[3].weight;
             }
         }
 
