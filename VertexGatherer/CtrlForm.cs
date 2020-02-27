@@ -49,6 +49,7 @@ namespace VertexGatherer
                 {
                     var vw = GetVertexBoneWithWeight(pmx.Vertex[i]);
                     weight.AddRange(vw);
+                    weight.RemoveAll(w => w.bone == null);
                 }
                 if (checkBoxUV.Checked)
                     uv += pmx.Vertex[i].UV;
@@ -104,7 +105,7 @@ namespace VertexGatherer
             for (int i = 0; i < weights.Count; i++)
             {
                 weight.Add(weights[i]);
-                if (i > 3)
+                if (i >= 3)
                     break;
             }
 
