@@ -48,8 +48,8 @@ namespace VertexGatherer
                 if (checkBoxWeight.Checked)
                 {
                     var vw = GetVertexBoneWithWeight(pmx.Vertex[i]);
+                    vw.RemoveAll(w => w.bone == null);
                     weight.AddRange(vw);
-                    weight.RemoveAll(w => w.bone == null);
                 }
                 if (checkBoxUV.Checked)
                     uv += pmx.Vertex[i].UV;
